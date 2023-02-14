@@ -1,0 +1,45 @@
+<div class="containerBig">
+  <div class="containerSmall">
+    <form class="form">
+
+      <mat-form-field class="full-width">
+        <mat-label>Username</mat-label>
+        <input
+          matInput
+          [formControl]="userNameFormControl "
+          placeholder="Enter your Username"
+        /> </mat-form-field
+        >
+      <mat-form-field class="full-width">
+        <mat-label>Password</mat-label>
+        <input
+          type="password"
+          matInput
+          [formControl]="passwordFormControl"
+          [errorStateMatcher]="matcher"
+          placeholder="Enter your password"
+        />
+        <mat-hint>Your Password Here</mat-hint>
+        <mat-error *ngIf="passwordFormControl.hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error>
+        <mat-error
+          *ngIf="
+            passwordFormControl.hasError('minlength') &&
+            !passwordFormControl.hasError('required')
+          "
+        >
+          Password must be at least 6 characters long
+        </mat-error>
+      </mat-form-field>
+      <button
+        [disabled]="isDisabled()"
+        routerLink="/home"
+        (click)="login()"
+        class="login"
+      >
+        Login
+      </button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<form>
+  <mat-form-field class="example-full-width">
+    <mat-label>Question</mat-label>
+    <input
+      matInput
+      [formControl]="questionControl"
+      placeholder="Enter your question"
+    />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Answer Here:</mat-label>
+    <textarea
+      matInput
+      [formControl]="answerControl"
+      placeholder="Enter your answer"
+    ></textarea>
+  </mat-form-field>
+</form>

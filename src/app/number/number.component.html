@@ -1,0 +1,21 @@
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Question</mat-label>
+    <input
+      matInput
+      [formControl]="questionControl"
+      placeholder="Enter your question"
+    />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Number</mat-label>
+    <input
+      type="number"
+      [formControl]="numberControl"
+      matInput
+      placeholder="1234"
+    />
+    <mat-hint>Enter a Number</mat-hint>
+  </mat-form-field>
+</form>

@@ -1,0 +1,51 @@
+<div cdkDropListGroup>
+  <div class="container" id="formElements">
+    <h3></h3>
+    <div
+      cdkDropList
+      [cdkDropListData]="formElements"
+      class="componentList"
+      id="formElements"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div class="array-box-elements" *ngFor="let item of formElements" cdkDrag>
+        {{ item }}
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="mainForm">
+    <h3></h3>
+    <div
+      cdkDropList
+      [cdkDropListData]="mainForm"
+      class="componentList"
+      id="mainForm"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div class="array-box-layout" *ngFor="let item of mainForm" cdkDrag>
+        <ng-container [ngSwitch]="item">
+          <app-head #headComponent *ngSwitchCase="'Title'"></app-head>
+          <app-short-ans  #shortAnsComponent *ngSwitchCase="'Short Answer'"></app-short-ans>
+          <!-- <app-number #numberComponent *ngSwitchCase="'Number'"></app-number> -->
+          <app-email #emailComponent *ngSwitchCase="'Email'"></app-email>
+          <!-- <app-date #dateComponent *ngSwitchCase="'Date'"></app-date> -->
+          <app-single-correct
+            #singleCorrectComponent
+            *ngSwitchCase="'Single Correct'"
+          ></app-single-correct>
+          <app-multiple-correct
+            #multipleCorrectComponent
+            *ngSwitchCase="'Multiple Correct'"
+          ></app-multiple-correct>
+        </ng-container>
+      </div>
+      <button  mat-button (click)="onFormSubmit()">
+        Submit Form
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<!-- routerLink="/create-form" -->
